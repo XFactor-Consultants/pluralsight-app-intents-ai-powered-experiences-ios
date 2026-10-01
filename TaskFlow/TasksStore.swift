@@ -2,6 +2,7 @@ import SwiftUI
 
 @Observable
 final class TasksStore {
+    static let shared = TasksStore()
     private(set) var tasks: [TaskItem]
     let teammates: [Teammate]
 
@@ -75,5 +76,8 @@ final class TasksStore {
     func toggleComplete(_ task: TaskItem) {
         guard let index = tasks.firstIndex(where: { $0.id == task.id }) else { return }
         tasks[index].isComplete.toggle()
+    }
+    func addTask(_ task: TaskItem) {
+        tasks.append(task)
     }
 }
