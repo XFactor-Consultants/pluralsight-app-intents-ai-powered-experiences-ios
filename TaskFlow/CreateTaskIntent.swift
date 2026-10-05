@@ -1,7 +1,5 @@
 import AppIntents
-struct AssigneeNotFoundError: Error {}
-
-struct CreateTaskIntent: AppIntent, ForegroundContinuableIntent {
+struct CreateTaskIntent: AppIntent {
     
     static var title: LocalizedStringResource = "Create Task"
     
@@ -9,25 +7,16 @@ struct CreateTaskIntent: AppIntent, ForegroundContinuableIntent {
     
     @Parameter(title: "Task Title")
     var taskTitle: String
-    @Parameter(title: "Assignee Name")
-    var assigneeName: String
-    
+    @Parameter(title: "Assignee")
+    var assignee: Teammate
     static var parameterSummary: some ParameterSummary {
-        Summary("Create \(\.$taskTitle) for \(\.$assigneeName)")
+        Summary("Create \(\.$taskTitle) for \(\.$assignee)")
     }
     
-    func perform() async throws -> some IntentResult & ProvidesDialog {
-        
+    func perform() async throws -> some IntentResult & ReturnsValue<TaskItem> & ProvidesDialog {
         let store = TasksStore.shared
-        guard let matchedAssignee = store.teammates.first(where: { $0.name.caseInsensitiveCompare(assigneeName) == .orderedSame }) else {
-            try await requestToContinueInForeground()
-            throw AssigneeNotFoundError()
-        }
-        
-        let newTask = TaskItem(title: taskTitle, assignee: matchedAssignee)
-        
+        let newTask = TaskItem(title: taskTitle, assignee: assignee)
         store.addTask(newTask)
-        
-        return .result(dialog: "Created \(taskTitle) for \(matchedAssignee.name).")
+        return .result(value: newTask, dialog: "Created \(taskTitle) for \(assignee.name).")
     }
 }
