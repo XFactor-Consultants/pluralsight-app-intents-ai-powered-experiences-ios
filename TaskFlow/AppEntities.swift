@@ -1,8 +1,8 @@
 import AppIntents
 
 extension TaskItem: AppEntity {
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Task"
-    static var defaultQuery = TaskEntityQuery()
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = "Task"
+    static let defaultQuery = TaskEntityQuery()
 
     var displayRepresentation: DisplayRepresentation {
         DisplayRepresentation(title: "\(title)", subtitle: "\(assignee?.name ?? "Unassigned")")
@@ -26,8 +26,8 @@ extension TaskEntityQuery: EntityStringQuery {
 }
 
 extension TaskItem.Priority: AppEnum {
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Priority"
-    static var caseDisplayRepresentations: [TaskItem.Priority: DisplayRepresentation] = [
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = "Priority"
+    static let caseDisplayRepresentations: [TaskItem.Priority: DisplayRepresentation] = [
         .low: DisplayRepresentation(title: "Low", image: .init(systemName: "arrow.down.circle.fill")),
         .medium: DisplayRepresentation(title: "Medium", image: .init(systemName: "equal.circle.fill")),
         .high: DisplayRepresentation(title: "High", image: .init(systemName: "exclamationmark.circle.fill"))
@@ -35,8 +35,8 @@ extension TaskItem.Priority: AppEnum {
 }
 
 extension Teammate: AppEntity {
-    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Teammate"
-    static var defaultQuery = TeammateEntityQuery()
+    static let typeDisplayRepresentation: TypeDisplayRepresentation = "Teammate"
+    static let defaultQuery = TeammateEntityQuery()
 
     var displayRepresentation: DisplayRepresentation {
         DisplayRepresentation(title: "\(name)")
