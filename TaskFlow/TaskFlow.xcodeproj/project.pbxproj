@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A08CF8530749F5300C83EAE /* TaskDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A08CF8430749F4A00C83EAE /* TaskDraft.swift */; };
+		1A08CF8730749F8A00C83EAE /* TaskDraftAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A08CF8630749F8500C83EAE /* TaskDraftAssistant.swift */; };
+		1A08CF893074A52D00C83EAE /* TeammateWorkloadTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A08CF883074A52600C83EAE /* TeammateWorkloadTool.swift */; };
+		1A08CF8D3074A59700C83EAE /* SubtaskBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A08CF8C3074A59700C83EAE /* SubtaskBreakdown.swift */; };
+		1A08CF8F3074A5A900C83EAE /* SubtaskAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A08CF8E3074A5A400C83EAE /* SubtaskAssistant.swift */; };
 		1A98763D306B0871004A1FA8 /* TaskFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98763A306B0870004A1FA8 /* TaskFlowApp.swift */; };
 		1A98763E306B0871004A1FA8 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98763B306B0870004A1FA8 /* TaskListView.swift */; };
 		1A98763F306B0871004A1FA8 /* CreateTaskIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A987636306B0870004A1FA8 /* CreateTaskIntent.swift */; };
@@ -15,10 +20,21 @@
 		1A987642306B0871004A1FA8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A987638306B0870004A1FA8 /* RootView.swift */; };
 		1A987643306B0871004A1FA8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A987639306B0870004A1FA8 /* SettingsView.swift */; };
 		1A987645306B1148004A1FA8 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A987644306B1148004A1FA8 /* TaskDetailView.swift */; };
+		1AB001A6307736290008B62A /* AssistantErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB001A53077361F0008B62A /* AssistantErrors.swift */; };
+		1AB001A830774FFC0008B62A /* SuggestSubtaskIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB001A730774FE70008B62A /* SuggestSubtaskIntent.swift */; };
+		1AB001AA3077544F0008B62A /* CreateSubtasksIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB001A93077544C0008B62A /* CreateSubtasksIntent.swift */; };
 		1AF3D1C5306B612100670191 /* TaskFlowShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3D1C4306B611C00670191 /* TaskFlowShortcuts.swift */; };
+		1AF3D1C7306F14DC00670191 /* AppEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3D1C6306F14D800670191 /* AppEntities.swift */; };
+		1AF3D1C93073401A00670191 /* AssignTaskIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3D1C83073401500670191 /* AssignTaskIntent.swift */; };
+		1AF3D1D53073602200670191 /* ProbeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3D1D43073601700670191 /* ProbeIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A08CF8430749F4A00C83EAE /* TaskDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDraft.swift; sourceTree = "<group>"; };
+		1A08CF8630749F8500C83EAE /* TaskDraftAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDraftAssistant.swift; sourceTree = "<group>"; };
+		1A08CF883074A52600C83EAE /* TeammateWorkloadTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeammateWorkloadTool.swift; sourceTree = "<group>"; };
+		1A08CF8C3074A59700C83EAE /* SubtaskBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskBreakdown.swift; sourceTree = "<group>"; };
+		1A08CF8E3074A5A400C83EAE /* SubtaskAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskAssistant.swift; sourceTree = "<group>"; };
 		1A987636306B0870004A1FA8 /* CreateTaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskIntent.swift; sourceTree = "<group>"; };
 		1A987637306B0870004A1FA8 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		1A987638306B0870004A1FA8 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -27,8 +43,14 @@
 		1A98763B306B0870004A1FA8 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		1A98763C306B0870004A1FA8 /* TasksStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStore.swift; sourceTree = "<group>"; };
 		1A987644306B1148004A1FA8 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		1AB001A53077361F0008B62A /* AssistantErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantErrors.swift; sourceTree = "<group>"; };
+		1AB001A730774FE70008B62A /* SuggestSubtaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestSubtaskIntent.swift; sourceTree = "<group>"; };
+		1AB001A93077544C0008B62A /* CreateSubtasksIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSubtasksIntent.swift; sourceTree = "<group>"; };
 		1AB21D56302421BC009226E2 /* TaskFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF3D1C4306B611C00670191 /* TaskFlowShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFlowShortcuts.swift; sourceTree = "<group>"; };
+		1AF3D1C6306F14D800670191 /* AppEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntities.swift; sourceTree = "<group>"; };
+		1AF3D1C83073401500670191 /* AssignTaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTaskIntent.swift; sourceTree = "<group>"; };
+		1AF3D1D43073601700670191 /* ProbeIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProbeIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,15 +67,26 @@
 		1AB21D4D302421BC009226E2 = {
 			isa = PBXGroup;
 			children = (
+				1A08CF8430749F4A00C83EAE /* TaskDraft.swift */,
+				1A08CF8630749F8500C83EAE /* TaskDraftAssistant.swift */,
 				1A987636306B0870004A1FA8 /* CreateTaskIntent.swift */,
 				1A987637306B0870004A1FA8 /* Models.swift */,
 				1A987638306B0870004A1FA8 /* RootView.swift */,
 				1A987639306B0870004A1FA8 /* SettingsView.swift */,
+				1A08CF883074A52600C83EAE /* TeammateWorkloadTool.swift */,
 				1A98763A306B0870004A1FA8 /* TaskFlowApp.swift */,
+				1AF3D1C6306F14D800670191 /* AppEntities.swift */,
+				1AF3D1D43073601700670191 /* ProbeIntent.swift */,
 				1A98763B306B0870004A1FA8 /* TaskListView.swift */,
 				1A98763C306B0870004A1FA8 /* TasksStore.swift */,
+				1AF3D1C83073401500670191 /* AssignTaskIntent.swift */,
 				1A987644306B1148004A1FA8 /* TaskDetailView.swift */,
 				1AF3D1C4306B611C00670191 /* TaskFlowShortcuts.swift */,
+				1A08CF8C3074A59700C83EAE /* SubtaskBreakdown.swift */,
+				1A08CF8E3074A5A400C83EAE /* SubtaskAssistant.swift */,
+				1AB001A730774FE70008B62A /* SuggestSubtaskIntent.swift */,
+				1AB001A93077544C0008B62A /* CreateSubtasksIntent.swift */,
+				1AB001A53077361F0008B62A /* AssistantErrors.swift */,
 				1AB21D57302421BC009226E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,13 +169,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A987645306B1148004A1FA8 /* TaskDetailView.swift in Sources */,
+				1A08CF8730749F8A00C83EAE /* TaskDraftAssistant.swift in Sources */,
 				1A98763D306B0871004A1FA8 /* TaskFlowApp.swift in Sources */,
+				1AB001A6307736290008B62A /* AssistantErrors.swift in Sources */,
+				1AB001AA3077544F0008B62A /* CreateSubtasksIntent.swift in Sources */,
+				1A08CF893074A52D00C83EAE /* TeammateWorkloadTool.swift in Sources */,
+				1A08CF8F3074A5A900C83EAE /* SubtaskAssistant.swift in Sources */,
+				1AF3D1D53073602200670191 /* ProbeIntent.swift in Sources */,
+				1AB001A830774FFC0008B62A /* SuggestSubtaskIntent.swift in Sources */,
 				1A98763E306B0871004A1FA8 /* TaskListView.swift in Sources */,
 				1A98763F306B0871004A1FA8 /* CreateTaskIntent.swift in Sources */,
 				1A987640306B0871004A1FA8 /* TasksStore.swift in Sources */,
+				1AF3D1C93073401A00670191 /* AssignTaskIntent.swift in Sources */,
 				1A987641306B0871004A1FA8 /* Models.swift in Sources */,
 				1A987642306B0871004A1FA8 /* RootView.swift in Sources */,
+				1A08CF8D3074A59700C83EAE /* SubtaskBreakdown.swift in Sources */,
 				1A987643306B0871004A1FA8 /* SettingsView.swift in Sources */,
+				1AF3D1C7306F14DC00670191 /* AppEntities.swift in Sources */,
+				1A08CF8530749F5300C83EAE /* TaskDraft.swift in Sources */,
 				1AF3D1C5306B612100670191 /* TaskFlowShortcuts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +324,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskFlow/Preview Content\"";
 				DEVELOPMENT_TEAM = WR9LAGW6KW;
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -287,7 +332,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,6 +359,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TaskFlow/Preview Content\"";
 				DEVELOPMENT_TEAM = WR9LAGW6KW;
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -321,7 +367,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
