@@ -30,40 +30,54 @@ struct SettingsView: View {
                     LabeledContent("Version", value: "1.0 (canonical build)")
                 }
                 #if DEBUG
-                Section("AI Task Drafting (Debug)") {
-                    Text("Somebody needs to get the sprint demo ready by Thursday, probably Marcus.")
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                    Button("Generate Draft") {
-                        Task {
-                            draftResult = try? await TaskDraftAssistant.draftTask(from: "Somebody needs to get the sprint demo ready by Thursday, probably Marcus.")
+                if case .available = SystemLanguageModel.default.availability {
+                    Section("AI Task Drafting (Debug)") {
+                        Text("Somebody needs to get the sprint demo ready by Thursday, probably Marcus.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                        Button("Generate Draft") {
+                            Task {
+                                draftResult = try? await TaskDraftAssistant.draftTask(from: "Somebody needs to get the sprint demo ready by Thursday, probably Marcus.")
+                            }
+                        }
+                        if let draftResult {
+                            Text("Title: " + draftResult.title)
+                            Text("Assignee: " + draftResult.suggestedAssigneeName)
                         }
                     }
-                    if let draftResult {
-                        Text("Title: " + draftResult.title)
-                        Text("Assignee: " + draftResult.suggestedAssigneeName)
-                    }
-                }
-                Section("AI Subtask Breakdown (Debug)") {
-                    Button("Stream Subtask Breakdown") {
-                        Task {
-                            do {
-                                for try await partial in SubtaskAssistant.streamBreakdown(for: "Plan the team offsite") {
-                                    breakdown = partial.content
+                    Section("AI Subtask Breakdown (Debug)") {
+                        Button("Stream Subtask Breakdown") {
+                            Task {
+                                do {
+                                    for try await partial in try SubtaskAssistant.streamBreakdown(for: "Plan the team offsite") {
+                                        breakdown = partial.content
+                                    }
+                                } catch {
+                                    breakdown = nil
                                 }
-                            } catch {
-                                breakdown = nil
+                            }
+                        }
+                        if let breakdown {
+                            if let subtasks = breakdown.subtasks {
+                                ForEach(subtasks, id: \.self) { Text("• \($0)") }
+                            }
+                            if let suggestedOwner = breakdown.suggestedOwner {
+                                Text("Suggested owner: \(suggestedOwner)")
+                                    .bold()
                             }
                         }
                     }
-                    if let breakdown {
-                        if let subtasks = breakdown.subtasks {
-                            ForEach(subtasks, id: \.self) { Text("• \($0)") }
-                        }
-                        if let suggestedOwner = breakdown.suggestedOwner {
-                            Text("Suggested owner: \(suggestedOwner)")
-                                .bold()
-                        }
+                } else {
+                    Section("AI Features (Debug)") {
+                        Text("AI drafting isn't available on this device right now. Create the task manually instead.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                Section("Prompt Safety (Debug)") {
+                    Button("Print Prompt-Safe Titles") {
+                        print("All titles:", TasksStore.shared.tasks.map { $0.title })
+                        print("Prompt-safe titles:", TasksStore.shared.promptSafeTasks.map { $0.title })
                     }
                 }
                 #endif
