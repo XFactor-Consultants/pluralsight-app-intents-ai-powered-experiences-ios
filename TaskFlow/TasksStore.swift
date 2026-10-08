@@ -84,11 +84,23 @@ final class TasksStore {
         guard let index = tasks.firstIndex(where: { $0.id == task.id }) else { return }
         tasks[index].isComplete.toggle()
     }
+
     func addTask(_ task: TaskItem) {
         tasks.append(task)
     }
+
     func reassign(_ taskID: TaskItem.ID, to teammate: Teammate) {
         guard let index = tasks.firstIndex(where: { $0.id == taskID }) else { return }
         tasks[index].assignee = teammate
+    }
+}
+
+extension TaskItem {
+    var isPromptSafe: Bool { !isSensitive }
+}
+
+extension TasksStore {
+    var promptSafeTasks: [TaskItem] {
+        tasks.filter(\.isPromptSafe)
     }
 }
